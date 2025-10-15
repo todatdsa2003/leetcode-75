@@ -30,6 +30,12 @@ Here is a list of the problems that have been solved so far, categorized by topi
 - Rearrange Array Elements by Sign (not in Leetcode 75)
 - Sort Array By Parity (not in Leetcode 75)
 
+## Practice2Pointers
+- Friends Of Appropriate Ages
+- Linked List Cycle
+- Remove Nth Node From End Of List
+- Trapping Rain Water
+
 ## Usage
 
 To use these solutions, you can copy the code from the respective Java file and paste it into the LeetCode problem editor for the corresponding problem. The code is self-contained within a `Solution` class, as expected by the LeetCode platform.
