@@ -1,7 +1,4 @@
-import java.util.Arrays;
-
-public class DetermineIfTwoStringsAreClose {
-    class Solution {
+class Solution {
         public boolean closeStrings(String word1, String word2) {
             // Neu do dai khac nhau thi khong the gan nhau
             if (word1.length() != word2.length()) {
@@ -34,5 +31,3 @@ public class DetermineIfTwoStringsAreClose {
             return Arrays.equals(count1, count2);
         }
     }
-    
-}
