@@ -1,23 +1,20 @@
 /**
- * Định nghĩa cho một Binary Tree Node.
+ * Definition for a binary tree node.
  * public class TreeNode {
- * int val;
- * TreeNode left;
- * TreeNode right;
- * TreeNode() {}
- * TreeNode(int val) { this.val = val; }
- * TreeNode(int val, TreeNode left, TreeNode right) {
- * this.val = val;
- * this.left = left;
- * this.right = right;
- * }
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
  * }
  */
 class Solution {
 
-    /**
-     * Hàm chính, nhận vào gốc của cây và tổng mục tiêu.
-     */
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
