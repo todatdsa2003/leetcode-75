@@ -14,20 +14,43 @@
  * }
  */
 class Solution {
+    /*Approach 1: Using Recursive*/
+    // public boolean isValidBST(TreeNode root) {
+    //     return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    // }
 
+    // private boolean validate(TreeNode node, long min, long max) {
+    //     if (node == null) {
+    //         return true;
+    //     }
+
+    //     if (node.val <= min || node.val >= max) {
+    //         return false;
+    //     }
+
+    //     return validate(node.left, min, node.val) && validate(node.right, node.val, max); 
+    // }
+
+    /*Approach 2: Using Iterative (Inorder Traversal)*/
     public boolean isValidBST(TreeNode root) {
-        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
-    }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode current = root;
+        long prevValue = Long.MIN_VALUE;
 
-    private boolean validate(TreeNode node, long min, long max) {
-        if (node == null) {
-            return true;
+        while (current != null || !stack.isEmpty()) {
+            while (current != null) {
+                stack.push(current);
+                current = current.left;
+            }
+            current = stack.pop();
+
+            if (current.val <= prevValue) {
+                return false;
+            }
+            prevValue = current.val;
+            current = current.right;
         }
 
-        if (node.val <= min || node.val >= max) {
-            return false;
-        }
-
-        return validate(node.left, min, node.val) && validate(node.right, node.val, max); 
+        return true;
     }
 }
