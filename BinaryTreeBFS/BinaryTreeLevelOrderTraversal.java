@@ -17,28 +17,33 @@ class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
 
+        // truong hop cay rong
         if (root == null) {
             return result;
         }
 
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int n = queue.size();
-            List<Integer> list = new ArrayList<>(n);
-            for (int i = 0; i < n; i++) {
-                TreeNode currentNode = queue.poll();
-                list.add(currentNode.val);
+        queue.offer(root); // bat dau tu goc
 
-                if (currentNode.left != null) {
-                    queue.add(currentNode.left);
+        // BFS
+        while (!queue.isEmpty()) {
+            int n = queue.size(); // so node o tang hien tai
+            List<Integer> level = new ArrayList<>(); // luu cac node o tang hien tai
+
+            // duyet qua tat ca node o tang hien tai
+            for (int i = 0; i < n; i++) {
+                TreeNode current = queue.poll(); // lay node dau tien trong queue
+                level.add(current.val); // them gia tri cua node vao danh sach tang
+
+                if (current.left != null) { // neu co con trai, them vao queue
+                    queue.offer(current.left);
                 }
-                if (currentNode.right != null) {
-                    queue.add(currentNode.right);
+                if (current.right != null) { // neu co con phai, them vao queue
+                    queue.offer(current.right);
                 }
             }
 
-            result.add(list);
+            result.add(level); // hoan thanh 1 tang, them vao list ket qua
         }
 
         return result;
